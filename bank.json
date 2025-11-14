@@ -1,0 +1,20 @@
+{
+    "9860020345367543": {
+        "name": "Xamidova Feruza",
+        "balance": 500000.0,
+        "account_number": "9860020345367543",
+        "expiry_date": "12/27",
+        "bank_name": "Ipoteka",
+        "pin": "3344",
+        "sms_xizmati": "yoniq"
+    },
+    "9860253412356400": {
+        "name": "Yoldoshbayev Ibrohim",
+        "balance": 5000000.0,
+        "account_number": "9860253412356400",
+        "expiry_date": "12/26",
+        "bank_name": "Ipoteka",
+        "pin": "1232",
+        "sms_xizmati": "ochiq"
+    }
+}
