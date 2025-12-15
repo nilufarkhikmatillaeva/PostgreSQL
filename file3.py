@@ -1,92 +1,212 @@
-# # "".join(s),
+# working with json data in python
+# try except
+# exam: bank card - series - password - if wrong=block if yes=services
+# add new characteristics for each electronic
+
+# electronics={
+#     "PC3242":{
+#         "title":"Lenovo",
+#         "price":"650$",
+#         "year":2011,
+#         "type":"Computer",
+#         "id":"PC3242",
+#         "cpu": "Intel i7",
+#         "storage": "512GB SSD"
+#     },
+#     "Ph3443":{
+#         "title":"s 24",
+#         "price":"1000$",
+#         "year":2022,
+#         "type":"Phone",
+#         "id":"Ph3443",
+#         "camera": "108MP",
+#         "memory": "256GB"
+#     },
+#     "TV1212":{
+#         "title":"LG",
+#         "price":"450$",
+#         "year":2010,
+#         "type":"TV",
+#         "id":"TV1212",
+#         "screen_size": "55 inches",
+#         "resolution": "4K"
+#     }}
+# def add_tv(d:dict):
+#     title=input("title:")
+#     price=input("price:")
+#     year=input("year:")
+#     type=input("type:")
+#     id=input("id:")
+#     screen_size = input("screen size: ")
+#     resolution = input("resolution: ")
+#     s={id:{
+#         "title":title,
+#         "price":price,
+#         "year":year,
+#         "type":type,
+#         "id":id,
+#         "screen_size":screen_size,
+#         "resolution":resolution,
+#     }}
+#     d.update(s)
+# def add_phone(d:dict):
+#     title=input("title:")
+#     price=input("price:")
+#     year=input("year:")
+#     type=input("type:")
+#     id=input("id:")
+#     camera=input("camera:")
+#     memory=input("memory:")
+#     s={id:{
+#         "title":title,
+#         "price":price,
+#         "year":year,
+#         "type":type,
+#         "id":id,
+#         "camera":camera,
+#         "memory":memory
+#     }}
+#     d.update(s)
+# def add_comp(d:dict):
+#     title=input("title:")
+#     price=input("price:")
+#     year=input("year:")
+#     type=input("type:")
+#     id=input("id:")
+#     cpu=input("cpu:")
+#     storage=input("storage:")
+#     s={id:{
+#         "title":title,
+#         "price":price,
+#         "year":year,
+#         "type":type,
+#         "id":id,
+#         "cpu":cpu,
+#         "storage":storage,
+#     }}
+#     d.update(s)
 #
-# # 32
-# count=0
-# with open("text.txt","r") as f:
-#     s=f.readlines()
-# for i in s:
-#     if i.strip()=="c":
-#         print(i)
-#         break
-# # 34
-# with open("text,txt","r") as f:
-#     s=f.readlines()
-#     max=len(s[0])
-#     for i in range(len(s)):
-#         if max<len(s[i]):
-#             max=len(s[i])
 #
-#     for i in range(len(s)):
-#         k=max-len(s[i])
-#         s[i]=k*" "+s[i]
+# def view_tv(d:dict):
+#     for k,v in d.items():
+#         if v.get("type","").lower()=="tv":
+#             print(f"id.{k}. title:{v['title']} price:{v['price']}")
+# def view_phone(d:dict):
+#     for k,v in d.items():
+#         if v.get("type","").lower()=="phone":
+#             print(f"id.{k}. type:Phone  title:{v['title']}")
+# def view_comp(d:dict):
+#     for k,v in d.items():
+#         if v.get("type","").lower()=="computer":
+#             print(f"id.{k}. type:Computer  title:{v['title']}")
 #
-# # 35
-# with open("text,txt","r") as f:
-#     s=f.readlines()
-#     text="        "
+# def electronic_manager(d:dict):
+#     while True:
+#         kod=input(" 1. view TV \n 2. add TV \n 3. view Phone \n 4. add Phone \n 5. view computer \n 6. add computer \n 7. break")
+#         if kod=="1":
+#             view_tv(d)
+#         elif kod=="2":
+#             add_tv(d)
+#         elif kod=="3":
+#             view_phone(d)
+#         elif kod=="4":
+#             add_phone(d)
+#         elif kod=="5":
+#             view_comp(d)
+#         elif kod=="6":
+#             add_comp(d)
+#         elif kod=="7":
+#             break
+# electronic_manager(electronics)
 
 
 
-contacts={
-    997856363:{
-        "name":"Ziyoda",
-        "phone": "+998997856363",
-        "email":"xamidullaeva@gmail.com"
+import json
+
+
+electronics={
+    "PC3242":{
+        "title":"Lenovo",
+        "price":"650$",
+        "year":2011,
+        "type":"Computer",
+        "id":"PC3242",
+        "cpu": "Intel i7",
+        "storage": "512GB SSD"
     },
-    908684868:{
-        "name":"Amina",
-        "phone":"+998908684868",
-        "email":"xamidova@gmail.com"
+    "Ph3443":{
+        "title":"s 24",
+        "price":"1000$",
+        "year":2022,
+        "type":"Phone",
+        "id":"Ph3443",
+        "camera": "108MP",
+        "memory": "256GB"
     },
-    972342323:{
-        "name":"Aziza",
-        "phone": "+998972342323",
-        "email":"xakimova@gmail.com"
-    }
-}
-
-def add_contact(d:dict):
-    name=input("name:")
-    phone=input("phone:")
-    email=input("email:")
-    s={phone:{
-        "name":name,
-        "phone":phone,
-        "email":email
+    "TV1212":{
+        "title":"LG",
+        "price":"450$",
+        "year":2010,
+        "type":"TV",
+        "id":"TV1212",
+        "screen_size": "55 inches",
+        "resolution": "4K"
     }}
-    d.update(s)
-def view_contact(d:dict):
-    for k,v in d.items():
-        print(f"id. {k}. name:{v['name']} phone:{v['phone']}")
 
-def contact_manager(d:dict):
-    while True:
-        kod=input(" 1.view contacts \n 2.add contacts \n 3.break")
-        if kod=="1":
-            view_contact(d)
-        elif kod=="2":
-            add_contact(d)
-        else:break
-contact_manager(contacts)
+# with open('n73.json','w') as f:
+#         data = json.dump(electronics, f,indent=4)
 
 
-email = input("Email: ")
-phone = input("Phone: ")
+# def add_n73(d:dict):
+#     with open('n73.json','w') as f:
+#         data = json.dump(electronics, f,indent=4)
+# add_n73(electronics)
 
-import re
-
-if re.match(r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', email):
-    print("Valid email")
-else:
-    print("Invalid email")
-
-if re.match(r'^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$', phone):
-    print("Valid phone")
-else:
-    print("Invalid phone")
-
-
+new_e={
+    "TV1214":{
+    "title": "Samsung",
+    "price": "500$",
+    "year": 2010,
+    "type": "TV",
+    "id": "TV1214",
+    "screen_size": "50 inches",
+    "resolution": "HD"}}
 
 
+def wr_n73(d:dict):
+    with open('n73.json','w') as f:
+        data = json.dump(d, f, indent=4)
+
+def read_n73():
+    s=0
+    with open('n73.json','r') as f:
+        try:
+            s=json.load(f)
+            return s
+        except:
+            return "n_73 file doesn't exist"
+read_n73()
+
+def add_n73():
+    data=read_n73()
+    title = input("title:")
+    price=input("price:")
+    year=input("year:")
+    type=input("type:")
+    id=input("id:")
+    s={id:{
+        "title":title,
+        "price":price,
+        "year":year,
+        "type":type,
+        "id":id
+    }}
+    if data:
+        data=dict(data)
+        data.update(s)
+        wr_n73(data)
+    else:
+        wr_n73(s)
+add_n73()
 
 
